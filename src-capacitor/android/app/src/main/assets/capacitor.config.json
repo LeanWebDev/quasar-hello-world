@@ -1,0 +1,10 @@
+{
+  "appId": "org.cordova.quasar.app",
+  "appName": "quasar-hello-world project",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "www",
+  "server": {
+    "url": "http://172.21.32.1:8080"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "quasar-hello-world",
+  "version": "0.0.1",
+  "description": "quasar-hello-world project",
+  "author": "Samir Azzouz <16241905+sazzouz@users.noreply.github.com>",
+  "private": true,
+  "dependencies": {
+    "@capacitor/android": "^2.1.0",
+    "@capacitor/cli": "^1.0.0",
+    "@capacitor/core": "^1.0.0"
+  }
+}

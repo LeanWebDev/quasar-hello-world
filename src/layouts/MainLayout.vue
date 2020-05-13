@@ -55,6 +55,9 @@ export default {
   components: {
     EssentialLink
   },
+  meta: {
+    title: 'Quasar Hello World'
+  },
 
   data () {
     return {
