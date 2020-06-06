@@ -1,46 +1,5 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-   <q-header elevated>
-      <q-toolbar class="bg-red-4 text-brand">
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu" 
-          aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        />
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-<q-btn color="brand shadow-20 disabled ellipsis xs" label="Cunt"/>
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
-    </q-header>
-
-   <!-- <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-1" style="width: 80px"
-    >
-      <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Essential Links
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
--->
-
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -59,7 +18,6 @@ export default {
   meta: {
     title: 'Quasar Hello World'
   },
-
   data () {
     return {
       leftDrawerOpen: false,
