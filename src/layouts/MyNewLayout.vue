@@ -1,7 +1,7 @@
 <template>
   <q-layout view="hHh Lpr fFf"> <!-- Be sure to play with the Layout demo on docs -->
 
-    <!-- (Optional) The Header -->
+    <!-- (Optional) The Header 
     <q-header elevated>
       <q-toolbar>
         <q-btn
@@ -31,6 +31,7 @@
         />
       </q-tabs>
     </q-header>
+    -->
 
     <!-- (Optional) The Footer -->
     <q-footer>

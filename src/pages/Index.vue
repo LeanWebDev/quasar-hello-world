@@ -1,4 +1,54 @@
 <template>
+<div>
+  <div class="row">
+    <q-splitter
+      v-model="splitterModel"
+      style="height: 250px"
+    >
+
+      <template v-slot:before>
+        <q-tabs
+          v-model="tab"
+          vertical
+          class="text-teal"
+        >
+          <q-tab name="mails" icon="mail" label="Mails" />
+          <q-tab name="alarms" icon="alarm" label="Alarms" />
+          <q-tab name="movies" icon="movie" label="Movies" />
+        </q-tabs>
+      </template>
+
+      <template v-slot:after>
+        <q-tab-panels
+          v-model="tab"
+          animated
+          swipeable
+          vertical
+          transition-prev="jump-up"
+          transition-next="jump-up"
+        >
+          <q-tab-panel name="mails">
+            <div class="text-h4 q-mb-md hallelujah">Mails</div>
+            <div class="text-subtitle text-strike hallelujah">This is a h5</div>
+            </q-tab-panel>
+
+          <q-tab-panel name="alarms">
+            <div class="text-h4 q-mb-md">Alarms</div>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
+          </q-tab-panel>
+
+          <q-tab-panel name="movies">
+            <div class="text-h4 q-mb-md">Movies</div>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
+          </q-tab-panel>
+        </q-tab-panels>
+      </template>
+
+    </q-splitter>
+  </div>
   <div class="row items-center justify-evenly">
     <q-card dark>
       <example-component
@@ -22,6 +72,11 @@
         label="Trigger"
         @click="trigger"
       />
+      <q-btn
+        class="bg-orange-3"
+        label="Pull Reddit"
+        @click="pullReddit"
+      />
     </div>
     <q-tabs>
       <q-route-tab
@@ -39,6 +94,7 @@
     </q-tabs>
 
   </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -49,6 +105,7 @@ export default {
   name: "PageIndex",
   components: { ExampleComponent },
   data() {
+    const tab: "alarms",
     const todos: Todo[] = [
       {
         id: 1,
@@ -74,7 +131,7 @@ export default {
     const meta: Meta = {
       totalCount: 1200
     };
-    return { todos, meta };
+    return { todos, meta, tab };
   },
   methods: {
     // we manually trigger it (this is not needed if we
@@ -89,6 +146,15 @@ export default {
           this.$refs.bar.stop();
         }
       }, Math.random() * 3000 + 1000);
+    },
+    pullReddit () {
+      this.$axios.get('https://www.reddit.com/r/awww.json?raw_json=1')
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        })
     }
   }
 };
