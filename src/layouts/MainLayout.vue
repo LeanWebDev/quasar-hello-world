@@ -1,5 +1,89 @@
 <template>
   <q-layout view="lHh Lpr lFf">
+    <q-toolbar class="bg-purple text-white">
+      <q-btn
+        flat
+        round
+        dense
+        icon="assignment_ind"
+      />
+      <q-toolbar-title>
+        Toolbar
+      </q-toolbar-title>
+      <q-btn
+        flat
+        round
+        dense
+        icon="apps"
+        class="q-mr-xs"
+      />
+      <q-btn
+        flat
+        round
+        dense
+        icon="more_vert"
+      />
+    </q-toolbar>
+    <template>
+      <div class="q-pa-md q-gutter-sm">
+        <q-btn
+          label="Maximized"
+          color="primary"
+          @click="dialog = true"
+        />
+
+        <q-dialog
+          v-model="dialog"
+          persistent
+          :maximized="maximizedToggle"
+          transition-show="slide-up"
+          transition-hide="slide-down"
+        >
+          <q-card class="bg-primary text-white">
+            <q-bar>
+              <q-space />
+
+              <q-btn
+                dense
+                flat
+                icon="minimize"
+                @click="maximizedToggle = false"
+                :disable="!maximizedToggle"
+              >
+                <q-tooltip
+                  v-if="maximizedToggle"
+                  content-class="bg-white text-primary"
+                >Minimize</q-tooltip>
+              </q-btn>
+              <q-btn
+                dense
+                flat
+                icon="crop_square"
+                @click="maximizedToggle = true"
+                :disable="maximizedToggle"
+              >
+                <q-tooltip
+                  v-if="!maximizedToggle"
+                  content-class="bg-white text-primary"
+                >Maximize</q-tooltip>
+              </q-btn>
+              <q-btn
+                dense
+                flat
+                icon="close"
+                v-close-popup
+              >
+                <q-tooltip content-class="bg-white text-primary">Close</q-tooltip>
+              </q-btn>
+            </q-bar>
+
+            <q-card-section>
+              <xterm></xterm>
+            </q-card-section>
+          </q-card>
+        </q-dialog>
+      </div>
+    </template>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -8,18 +92,22 @@
 
 <script>
 import EssentialLink from 'components/EssentialLink'
+import XTerm from 'components/Xterm'
 
 export default {
   name: 'MainLayout',
 
   components: {
-    EssentialLink
+    EssentialLink,
+    XTerm
   },
   meta: {
     title: 'Quasar Hello World'
   },
   data () {
     return {
+      dialog: false,
+      maximizedToggle: true,
       leftDrawerOpen: false,
       essentialLinks: [
         {

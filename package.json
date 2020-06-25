@@ -17,7 +17,9 @@
     "axios": "^0.18.1",
     "cordova": "^9.0.0",
     "quasar": "^1.9.5",
-    "vue-i18n": "^8.0.0"
+    "vue-i18n": "^8.0.0",
+    "vue-term": "^0.1.2",
+    "xterm": "^4.7.0"
   },
   "devDependencies": {
     "@quasar/app": "^1.6.2",

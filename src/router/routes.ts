@@ -15,6 +15,11 @@ const routes: RouteConfig[] = [
         path: "/breaking-bad",
         name: "breaking-bad",
         component: () => import("pages/bbad.vue")
+      },
+      {
+        path: "/to-do",
+        name: "to-do",
+        component: () => import("pages/PagesToDo.vue")
       }
     ]
   }
