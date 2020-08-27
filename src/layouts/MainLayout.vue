@@ -14,8 +14,9 @@
         flat
         round
         dense
-        icon="apps"
+        icon="nights_stay"
         class="q-mr-xs"
+        @click="toggleDark"
       />
       <q-btn
         flat
@@ -103,6 +104,11 @@ export default {
   },
   meta: {
     title: 'Quasar Hello World'
+  },
+  methods: {
+    toggleDark () {
+      this.$q.dark.toggle()
+    }
   },
   data () {
     return {
